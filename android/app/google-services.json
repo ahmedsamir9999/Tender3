@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "734353207013",
+    "project_id": "tender3-61072",
+    "storage_bucket": "tender3-61072.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734353207013:android:c7d789bbbcde889fcd2e0c",
+        "android_client_info": {
+          "package_name": "com.example.tender3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734353207013-b0crjm0rk8odcjskmpjk95ifnps6dj8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tender3",
+            "certificate_hash": "19bcf1a1e6388502a8325dfefafef0cc55fb5074"
+          }
+        },
+        {
+          "client_id": "734353207013-quepupqujhdh5k4dholodit8qah44rsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG8_xundjIrxhpejNjClHK4UxVa21P-zU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734353207013-quepupqujhdh5k4dholodit8qah44rsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
