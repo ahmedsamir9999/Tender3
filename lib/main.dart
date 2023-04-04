@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:tender3/module/module.dart';
+import 'package:tender3/screen/login_screen/logIn_screen.dart';
 import 'package:tender3/screen/map_screen/map.dart';
+import 'package:tender3/screen/sign%20up/sign%20up.dart';
 import 'package:tender3/screen/splash_screen/splash_screen.dart';
+import 'package:tender3/test.dart';
 
 
 
@@ -25,14 +28,16 @@ class MyApp extends StatelessWidget {
       data: const MediaQueryData(),
       child: ScreenUtilInit(
           designSize: const Size(425 , 925),
-          builder: (BuildContext , Widget)=>GetMaterialApp(
+          builder: (BuildContext , Widget)=> GetMaterialApp(
             debugShowCheckedModeBanner: false,
            home: SplashScreen(),
-           // home: LogInScreen() ,
+            //home: LogInScreen() ,
            // home: MapGps(),
            //  home: Module(date: 'test' ,
            //      time: 'test',
            //      pieces: 'test'),
+           // home:SignUpScreen() ,
+            //home: Test(),
           )),
     );
   }

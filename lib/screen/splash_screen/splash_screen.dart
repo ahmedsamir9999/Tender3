@@ -1,7 +1,12 @@
 
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tender3/screen/login_screen/logIn_screen.dart';
+import 'package:tender3/services/services.dart';
 import '../../const/style.dart';
 import '../home/home.dart';
 
@@ -15,16 +20,27 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-
+final ser = Services();
 
   @override
   void initState() {
-    Timer(
+   Timer(
         Duration(seconds: 5),
-            (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+            ()async{
+         // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+
+              if(await ser.auth.currentUser != null)
+              {
+                Get.offAll(Home());
+              }else
+              {
+                Get.offAll(LogInScreen());
+              }
         }
     );
+
+
+
     super.initState();
   }
 

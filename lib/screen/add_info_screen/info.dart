@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_scrolling_fab_animated/flutter_scrolling_fab_animated.dart';
 import 'package:get/get.dart';
+import 'package:tender3/screen/login_screen/logIn_screen.dart';
+import 'package:tender3/services/services.dart';
 
 import '../../componant/Buttom.dart';
 import '../../componant/Row_More_Inaformation.dart';
@@ -54,8 +56,12 @@ class _InfoScreenState extends State<InfoScreen> {
               child: Button(
                 width: MediaQuery.of(context).size.width / 2,
                 height: Get.height / 20.h,
-                onPressed: () {},
-                text: 'Delete Account',
+                onPressed: () async
+                {
+                  await Services().logOut();
+                  Get.offAll(LogInScreen());
+                },
+                text: 'Log Out Account',
                 isFramed: true,
               ),
             )

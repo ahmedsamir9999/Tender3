@@ -13,21 +13,28 @@ final control = Get.put(HistoryController());
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child:Obx(()=> Column(
+        child:Column(
           children: [
-            ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount:control.time.length ,
-                itemBuilder: (BuildContext context , i )
-                {
-                  return ItemShape(
-                      date: control.time[i].time.toString() ,
-                      time: control.time[i].date.toString(),
-                      pieces: control.time[i].pieces.toString()
-                  );
-                }
-            ),
+           FutureBuilder(
+             future: control.getDataFromFirebase(),
+               builder: (context , snapshot)
+               {
+                 return  ListView.builder(
+                     shrinkWrap: true,
+                     physics: const NeverScrollableScrollPhysics(),
+                     itemCount:control.time.length ,
+                     itemBuilder: (BuildContext context , i )
+                     {
+                       return ItemShape(
+                           date: control.time[i].time.toString() ,
+                           time: control.time[i].date.toString(),
+                           pieces: control.time[i].pieces.toString(),
+                         imageUrl: control.time[i].imageUrl.toString(),
+                       );
+                     }
+                 );
+               }
+           ),
             // GetX<HistoryController>(
             //   init: HistoryController(),
             //     builder:(controller)=>ListView.builder(
@@ -59,7 +66,6 @@ final control = Get.put(HistoryController());
           ],
         ),
       ),
-      )
     );
   }
 }

@@ -8,13 +8,15 @@ class ItemShape extends StatelessWidget {
    ItemShape({super.key,
      required this.date,
      required this.time,
-     required this.pieces
+     required this.pieces,
+     required this.imageUrl,
 });
 
   String? date ;
   String? time ;
   String? pieces ;
   String states ='Accept';
+  String imageUrl ;
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +111,7 @@ class ItemShape extends StatelessWidget {
                     child: Container(
                       height: 200.h,
                       width: 150.w,
-                      child: Image.asset('lib/assets/tender/3.jpeg',fit: BoxFit.fill),
+                      child: Image.network(imageUrl),
                     ),
                   ),
                 ],

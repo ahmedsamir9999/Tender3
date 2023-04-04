@@ -16,6 +16,7 @@ class AddItemController extends GetxController {
   File? image;
   Rx<Color> border = K.primaryColor.obs;
   RxBool isLoading = false.obs ;
+  Rx<Color> color = K.primaryColor.obs;
 
   pickImage() async {
     final imagePick =

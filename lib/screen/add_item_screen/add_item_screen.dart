@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:tender3/model/model.dart';
+import 'package:tender3/model/item_model.dart';
 import 'package:tender3/screen/add_item_screen/controllers/add_item_controller.dart';
 import 'package:tender3/screen/home/home.dart';
 import 'package:tender3/screen/map_screen/map_screen.dart';
 import 'package:tender3/services/services.dart';
 
+import '../../componant/snack_Bar.dart';
 import '../../const/style.dart';
 
 class AddItemScreen extends StatelessWidget {
@@ -232,7 +233,7 @@ class AddItemScreen extends StatelessWidget {
                 TextButton(
                     onPressed: ()async
                     {
-                     if(controller.formKey.currentState!.validate())
+                     if(controller.formKey.currentState!.validate() )
                      {
                        controller.isLoading.value =true ;
                       await ser.addItemToFirebase(
@@ -241,9 +242,9 @@ class AddItemScreen extends StatelessWidget {
                                apartmentNumber: numHouse,
                                areaNumber: numAddress,
                                date: controller.dateController.text,
-                               imageUrl: ser.uploadImageToFirebaseStorage(
+                               imageUrl:await ser.uploadImageToFirebaseStorage(
                                    imagePath: controller.image!.path,
-                                   imageName: 'ahmed').toString(),
+                                   imageName:controller.image!.path ),
                                landMark: specialMark,
                                lat: 'test',
                                lng: 'test',
@@ -254,7 +255,7 @@ class AddItemScreen extends StatelessWidget {
                            ));
                        Get.off(Home());
                        controller.isLoading.value =false ;
-                     }
+                     }//else {showSnackBar(context , 'Enter all data' );}
                     },
                     child: Container(
                       height: 50.h,
